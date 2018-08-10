@@ -59,7 +59,8 @@ static onceToken s_token([]() {
     });
 #endif//defined(_WIN32)
 
-    Logger::Instance().add(std::make_shared<ConsoleChannel>("stdout", LTrace));
+    //Logger::Instance().add(std::make_shared<ConsoleChannel>("stdout", LTrace));
+	Logger::Instance().add(std::make_shared<FileChannel>("RtspFile", "123.log", LTrace));
     EventPoller::Instance().runLoop(false);
 
     s_videoRenderTimer.reset(new AsyncTaskThread(5));//全局的视频渲染时钟

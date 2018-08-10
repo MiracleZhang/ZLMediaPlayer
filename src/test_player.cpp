@@ -76,8 +76,13 @@ int WINAPI WinMain(HINSTANCE hInstance, //WinMain∫Ø ˝Àµ√˜
 		hInstance, //¥¥Ω®¥À¥∞ø⁄µƒ”¶”√≥Ã–Úµƒµ±«∞æ‰±˙
 		NULL); //≤ª π”√∏√÷µ
 	
-    MediaPlayerWrapperHelper::Instance().addDelegate("rtmp://live.hkstv.hk.lxdns.com/live/hks", new MediaPlayerWrapperDelegateImp(hwnd));
-    MediaPlayerWrapperHelper::Instance().getPlayer("rtmp://live.hkstv.hk.lxdns.com/live/hks")->setPauseAuto(false);
+	//const char *url = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+	//const char *url = "rtsp://admin:admin@192.168.1.101:8554/test.sdp";
+	const char *url = "rtsp://192.168.1.101:8554/test.sdp";
+	//const char *url = "rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov";
+
+    MediaPlayerWrapperHelper::Instance().addDelegate(url, new MediaPlayerWrapperDelegateImp(hwnd));
+    MediaPlayerWrapperHelper::Instance().getPlayer(url)->setPauseAuto(false);
 	/*MediaPlayerWrapper::Ptr player(new MediaPlayerWrapper());
 	player->setOption("rtp_type",1);
 	player->setPauseAuto(true);
